@@ -5,13 +5,16 @@ export interface EligibilityData {
   category: string;
   annualIncome: number;
   occupation: string;
+  gender: string;
 }
 
 export interface Scheme {
   id: string;
-  name: string;
-  description: string;
-  eligibility: string;
+  scheme_name: string;
+  description?: string;
+  eligibility?: string;
   benefit: string;
-  reasoning: string;
+  why_eligible: string;
+  documents_required: string[];
+  apply_link: string;
 }
