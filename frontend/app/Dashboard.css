@@ -13,33 +13,38 @@
 .hero-section {
     text-align: center;
     padding: 3rem 1rem;
-    background: rgba(255, 255, 255, 0.75);
+    background: rgba(30, 41, 59, 0.85);
+    /* slate-800 - Lighter */
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 1.5rem;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
 }
 
 .hero-badge {
     display: inline-block;
     padding: 0.5rem 1rem;
     border-radius: 9999px;
-    background-color: #dbeafe;
-    color: #1e40af;
+    background-color: #1e293b;
+    /* slate-800 */
+    color: #f8fafc;
+    /* slate-50 */
     font-weight: 600;
     font-size: 0.875rem;
     margin-bottom: 1rem;
     letter-spacing: 0.05em;
     text-transform: uppercase;
-    border: 1px solid #bfdbfe;
+    border: 1px solid #334155;
+    /* slate-700 */
 }
 
 .hero-title {
     font-size: 2.5rem;
     font-family: 'Outfit', sans-serif;
     font-weight: 800;
-    color: #111827;
+    color: #f1f5f9;
+    /* slate-100 */
     letter-spacing: -0.025em;
     margin-bottom: 1rem;
     line-height: 1.2;
@@ -55,7 +60,8 @@
     max-width: 42rem;
     margin: 0 auto 2rem auto;
     font-size: 1.125rem;
-    color: #4b5563;
+    color: #94a3b8;
+    /* slate-400 */
     line-height: 1.625;
 }
 
@@ -66,12 +72,14 @@
 }
 
 .tab-navigation {
-    background: rgba(255, 255, 255, 0.6);
+    background: rgba(30, 41, 59, 0.8);
+    /* slate-800 - Lighter */
     backdrop-filter: blur(12px);
     padding: 0.375rem;
     border-radius: 1rem;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-    border: 1px solid #e5e7eb;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border: 1px solid #475569;
+    /* slate-600 */
     display: inline-flex;
     position: relative;
 }
@@ -100,24 +108,31 @@
 }
 
 .tab-button.active-complaint {
-    color: #1d4ed8;
-    background-color: white;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    color: #0f172a;
+    /* slate-900 */
+    background: linear-gradient(to bottom right, #f1f5f9, #cbd5e1);
+    /* slate bright */
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
 }
 
 .tab-button.active-scheme {
-    color: #15803d;
-    background-color: white;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    color: #0f172a;
+    /* slate-900 */
+    background: linear-gradient(to bottom right, #f1f5f9, #cbd5e1);
+    /* slate bright */
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
 }
 
 .tab-button.inactive {
-    color: #6b7280;
+    color: #64748b;
+    /* slate-500 */
 }
 
 .tab-button.inactive:hover {
-    color: #1f2937;
-    background-color: rgba(255, 255, 255, 0.4);
+    color: #f1f5f9;
+    /* slate-100 */
+    background-color: rgba(255, 255, 255, 0.05);
+    /* very dark hover */
 }
 
 .tab-icon {
@@ -133,12 +148,14 @@
 
 .feature-wrapper {
     animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(30, 41, 59, 0.85);
+    /* slate-800 - Lighter */
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    /* Slightly more visible border */
     border-radius: 1.5rem;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
     padding: 1rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
