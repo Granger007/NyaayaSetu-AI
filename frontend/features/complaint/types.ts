@@ -24,4 +24,6 @@ export interface ComplaintDraft {
   draftId: string;
   formattedDraft: string;
   timestamp: string;
+  download_url?: string;
+  complaint_text?: string;
 }

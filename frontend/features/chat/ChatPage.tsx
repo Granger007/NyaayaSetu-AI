@@ -78,8 +78,8 @@ const ChatPage: React.FC = () => {
     try {
       const response = await api.post<any>('/chat', { message: query });
       
-      if (response && response.summary) {
-        simulateStreaming(response.summary, response);
+      if (response && response.success && response.data && response.data.summary) {
+        simulateStreaming(response.data.summary, response.data);
       } else {
         setMessages(prev => [...prev, { 
           role: 'bot', 
