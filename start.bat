@@ -1,35 +1,60 @@
 @echo off
 setlocal
-echo Starting NyayaSetu-AI...
+echo ==========================================
+echo       NyayaSetu AI - Windows Setup
+echo ==========================================
 
-REM Check if npm is installed
+REM Check for Node.js
 where npm >nul 2>nul
 if %errorlevel% neq 0 (
-    echo npm could not be found. Please install Node.js.
+    echo [ERROR] npm could not be found. Please install Node.js (v20+).
     pause
     exit /b 1
 )
 
-REM Start backend
-echo Starting backend server...
-start "Backend" /D "%~dp0backend" cmd /c "if not exist node_modules (npm install) & npm run dev"
-
-REM Start frontend
-echo Starting frontend development server...
-pushd "%~dp0frontend"
-
-if not exist package.json (
-    echo package.json not found in frontend folder.
-    popd
+REM Check for Python
+where python >nul 2>nul
+if %errorlevel% neq 0 (
+    echo [ERROR] python could not be found. Please install Python (v3.9+).
     pause
     exit /b 1
 )
 
+REM 1. Setup Python Backend
+echo [1/3] Setting up Python backend...
+if not exist venv (
+    echo Creating virtual environment...
+    python -m venv venv
+)
+
+echo Activating virtual environment and installing requirements...
+call venv\Scripts\activate
+pip install -r requirements.txt
+
+echo Starting Python backend in new window...
+start "Python Backend" cmd /c "call venv\Scripts\activate && cd backend && python main.py"
+
+REM 2. Setup Node.js Backend
+echo [2/3] Setting up Node.js backend...
+pushd backend
 if not exist node_modules (
-    echo Installing dependencies for frontend...
+    echo Installing Node backend dependencies...
+    call npm install
+)
+echo Starting Node.js backend in new window...
+start "Node Backend" cmd /c "cd backend && npm run dev"
+popd
+
+REM 3. Setup Frontend
+echo [3/3] Setting up Frontend...
+pushd frontend
+if not exist node_modules (
+    echo Installing Frontend dependencies...
     call npm install --legacy-peer-deps
 )
 
+echo Starting Frontend...
+echo Access the app at http://localhost:3000
 call npm run dev
 popd
 

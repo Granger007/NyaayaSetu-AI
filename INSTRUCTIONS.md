@@ -115,9 +115,18 @@ The UI is built with Next.js and Tailwind CSS.
 ---
 
 ## Running with Automated Scripts
-Use these scripts from the root directory to start the project:
-- **Windows**: `start.bat`
-- **macOS/Linux**: `chmod +x start.sh && ./start.sh`
+### Windows (Recommended)
+Simply double-click `start.bat` in the root directory. 
+- It will automatically create a Python virtual environment.
+- It will install all backend and frontend dependencies.
+- It will open two separate windows for the Python and Node backends.
+- It will start the frontend in the original window.
+
+### macOS/Linux
+Use the provided shell script:
+```bash
+chmod +x start.sh && ./start.sh
+```
 
 ## Environment Variables
 Create a `.env` file in the `backend/` directory with:
@@ -128,3 +137,11 @@ Create a `.env` file in the `backend/` directory with:
 ## Troubleshooting
 - **Node Version**: Ensure Node.js is 20+ to support the latest TypeScript types.
 - **Python Command**: Use `python3` and `pip3` if `python` refers to Python 2.x on your system.
+- **Error: Cannot find module '@tailwindcss/postcss'**: 
+  This happens if dependencies are corrupted or partially installed. Fix it by running:
+  ```bash
+  cd frontend
+  rm -rf node_modules package-lock.json
+  npm install
+  ```
+  (On Windows, manually delete `node_modules` folder and `package-lock.json`, then run `npm install`)
