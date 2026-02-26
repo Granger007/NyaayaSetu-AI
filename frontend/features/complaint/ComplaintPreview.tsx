@@ -14,24 +14,16 @@ const ComplaintPreview: React.FC<ComplaintPreviewProps> = ({ draft }) => {
     <Card className="p-6 space-y-6 bg-white border shadow-sm">
       <div className="border-b pb-4">
         <h2 className="text-2xl font-serif font-bold text-center">LEGAL COMPLAINT DRAFT</h2>
-        {draft?.sections_referenced?.length > 0 && (
-          <div className="mt-2 flex flex-wrap gap-2 justify-center">
-            {draft.sections_referenced.map((section, idx) => (
-              <span key={idx} className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">
-                {section}
-              </span>
-            ))}
-          </div>
-        )}
+        <p className="text-sm text-center text-gray-500 mt-1">Ref ID: {draft.draftId}</p>
       </div>
       
       <div className="whitespace-pre-wrap font-serif text-lg leading-relaxed text-gray-800 p-4 border rounded bg-gray-50">
-        {draft?.complaint_text || (draft as any)?.formattedDraft || "Draft content is being generated or is unavailable. Please check your inputs and try again."}
+        {draft.formattedDraft}
       </div>
 
-      <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8 border-t mt-8">
+      <div className="flex flex-col md:flex-row gap-4 justify-center pt-8 border-t mt-8">
         <Button 
-          className="btn btn-primary w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-4 text-lg"
+          className="btn btn-primary w-full md:w-auto flex items-center justify-center gap-3 px-8 py-4 text-lg"
           onClick={() => draft?.download_url && window.open(draft.download_url, '_blank')}
           disabled={!draft?.download_url}
         >
@@ -41,7 +33,7 @@ const ComplaintPreview: React.FC<ComplaintPreviewProps> = ({ draft }) => {
           Download PDF
         </Button>
         <Button 
-          className="btn btn-success w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-4 text-lg"
+          className="btn btn-success w-full md:w-auto flex items-center justify-center gap-3 px-8 py-4 text-lg"
           onClick={() => {
             const complaintText = draft?.complaint_text || "";
             const text = encodeURIComponent(`Legal Complaint Draft:\n\n${complaintText.substring(0, 500)}...`);
