@@ -15,6 +15,32 @@ Follow these instructions to get the **NyayaSetu AI** project running locally.
 
 ---
 
+## Complete Tech Stack
+
+### Frontend (User Interface)
+- **Framework**: Next.js (React)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS v4
+- **API Client**: Axios
+- **Web Native APIs**: Web Speech API (`SpeechRecognition` & `SpeechSynthesis`) for multilingual voice-bot support.
+
+### Middle Tier (API Orchestration)
+- **Runtime Environment**: Node.js
+- **Framework**: Express.js
+- **Language**: TypeScript
+- **Tools**: `ts-node`, `cors`
+
+### Core AI Backend (Logic & Processing)
+- **Language**: Python 3.9+
+- **API Framework**: FastAPI
+- **Web Server**: Uvicorn
+- **AI Models**: Google Generative AI (Gemini 2.5 Flash via `google-generativeai` for Multi-language Chat capability, Scheme Mapping, and native PDF parsing)
+- **RAG & NLP Frameworks**: Langchain, Boto3 (AWS Bedrock integrations)
+- **Vector Database & Embeddings**: FAISS (CPU), `sentence-transformers`
+- **Data Validation & Parsing**: Pydantic, `python-multipart` (For handling File & Form payloads)
+
+---
+
 ## Installation Steps
 
 ### 1. Clone the Repository
